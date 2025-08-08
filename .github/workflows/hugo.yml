@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   build:
@@ -18,12 +16,16 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
-      - uses: actions/setup-hugo@v3
+
+      # ✅ Install Hugo (extended)
+      - uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.126.1'   # or 'latest'
           extended: true
+
       - name: Build
         run: hugo --minify
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
