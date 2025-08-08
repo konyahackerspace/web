@@ -2,8 +2,6 @@ baseURL = "/"
 title = "Konya Hackerspace"
 languageCode = "en"
 theme = "PaperMod"
-paginate = 10
-enableRobotsTXT = true
 
 # Nice URLs
 [permalinks]
