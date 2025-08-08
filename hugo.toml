@@ -1,4 +1,4 @@
-baseURL = "https:///konyahackerspace.org"
+baseURL = "https://konyahackerspace.org/"
 title = "Konya Hackerspace"
 languageCode = "en"
 theme = "PaperMod"
