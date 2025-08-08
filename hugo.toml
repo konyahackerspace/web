@@ -1,0 +1,31 @@
+baseURL = "/"
+title = "Konya Hackerspace"
+languageCode = "en"
+theme = "PaperMod"
+paginate = 10
+enableRobotsTXT = true
+
+# Nice URLs
+[permalinks]
+  blog = "/blog/:year/:month/:slug/"
+
+# Menu (you can tweak later)
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 20
+  [[menu.main]]
+    name = "Events"
+    url = "/events/"
+    weight = 30
+
+# PaperMod basics
+[params]
+  defaultTheme = "dark"     # dark/light
+  showReadingTime = false
+  ShowShareButtons = false
