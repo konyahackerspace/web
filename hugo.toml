@@ -10,8 +10,8 @@ theme = "PaperMod"
 # Menu
 [menu]
   [[menu.main]]
-    name = "About"
-    url = "/about/"
+    name = "FAQ"
+    url = "/faq/"
     weight = 10
   [[menu.main]]
     name = "Events"
@@ -22,4 +22,5 @@ theme = "PaperMod"
 [params]
   defaultTheme = "dark" 
   showReadingTime = false
-  ShowShareButtons = false
+  showShareButtons = false
+  disableThemeToggle = true
