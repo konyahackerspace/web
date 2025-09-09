@@ -1,7 +1,8 @@
 baseURL = "https://konyahackerspace.org/"
 title = "Konya Hackerspace"
 languageCode = "en"
-theme = "PaperMod"
+theme = "terminal"
+copyright = "Powered by Hugo"
 
 # Nice URLs
 [permalinks]
@@ -12,11 +13,11 @@ theme = "PaperMod"
   [[menu.main]]
     name = "FAQ"
     url = "/faq/"
-    weight = 10
+    weight = 20
   [[menu.main]]
     name = "Events"
     url = "/events/"
-    weight = 20
+    weight = 10
 
 # PaperMod basics
 [params]
@@ -24,3 +25,8 @@ theme = "PaperMod"
   showReadingTime = false
   showShareButtons = false
   disableThemeToggle = true
+
+  centerTheme = true
+  dateFormat = "02-01-2006"
+  logo.logoText = "Konya Hackerspace"
+  readMore = "More..."
