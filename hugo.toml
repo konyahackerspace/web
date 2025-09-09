@@ -28,5 +28,5 @@ copyright = "Powered by Hugo"
 
   centerTheme = true
   dateFormat = "02-01-2006"
-  logo.logoText = "Konya Hackerspace"
+  logo.logoText = " "
   readMore = "More..."
