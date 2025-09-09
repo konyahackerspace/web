@@ -1,0 +1,21 @@
+:root {
+  --background: #21201d;
+  --foreground: #fff9e0;
+  --accent: #d3a7ff;
+}
+
+
+.logo {
+  background: none;
+  padding: 0px !important;
+}
+
+.header__logo img {
+  border: 0;
+  padding: 0;
+  height: 4rem;
+}
+
+.header__logo::after {
+  display: none;
+}
