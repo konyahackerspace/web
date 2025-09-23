@@ -37,4 +37,12 @@ We'll see if Konya, the ancient capital city of Seljuks, is ready to host a hack
 
 ## Photos
 
-To be uploaded...
+![](1.png)
+![](2.png)
+![](3.png)
+![](4.png)
+![](5.png)
+![](6.jpg)
+![](7.jpg)
+
+All other event photos and videos are shared with participants. Check your inboxes :)
