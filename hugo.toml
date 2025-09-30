@@ -21,6 +21,8 @@ copyright = "Powered by Hugo"
 
 # PaperMod basics
 [params]
+  favicon = 'favicon.png'
+
   defaultTheme = "dark" 
   showReadingTime = false
   showShareButtons = false
