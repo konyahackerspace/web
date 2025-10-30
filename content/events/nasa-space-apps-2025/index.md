@@ -12,7 +12,7 @@ In this event, two teams from Konya Hackerspace participated in NASA Space Apps 
 
 ## Team Hanzalabs: Agri Inc.
 
-**Team Members:** [Abdullah Ilgaz](https://www.spaceappschallenge.org/nasa-space-apps-2025/find-a-team/hanzalabs/) and [Mehmet Talha Uyar](https://www.spaceappschallenge.org/nasa-space-apps-2025/find-a-team/hanzalabs/)
+**Team Members:** Abdullah Ilgaz and Mehmet Talha Uyar
 
 **Challenge:** NASA Farm Navigators - Using NASA Data Exploration in Agriculture
 
@@ -26,7 +26,7 @@ The game simulates four seasons with a ₺300 budget, where players make irrigat
 
 ## Team Hackers from the Space: Lake Tuz
 
-**Team Members:** [Safa Orhan](https://x.com/safaorhantr), [Ömer Faruk Öz](https://www.spaceappschallenge.org/nasa-space-apps-2025/find-a-team/hackers-from-the-space/), and [Ömer Kırkan](https://www.spaceappschallenge.org/nasa-space-apps-2025/find-a-team/hackers-from-the-space/)
+**Team Members:** Safa Orhan, Ömer Faruk Öz and Ömer Kırkan
 
 **Challenge:** Animation Celebration of Terra Data!
 
