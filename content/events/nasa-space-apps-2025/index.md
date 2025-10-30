@@ -12,7 +12,7 @@ In this event, two teams from Konya Hackerspace participated in NASA Space Apps 
 
 ## Team Hanzalabs: Agri Inc.
 
-**Team Members:** Abdullah Ilgaz and Mehmet Talha Uyar
+**Team Members:** Abdullah Ilgaz and Mehmet Taha Uyar
 
 **Challenge:** NASA Farm Navigators - Using NASA Data Exploration in Agriculture
 
@@ -20,7 +20,7 @@ They built an educational farming simulation game using React. Players manage a 
 
 The game simulates four seasons with a ₺300 budget, where players make irrigation and fertilization decisions. It includes 3D animated field visualization and rewards sustainable farming practices.
 
-**Links:** [Live Demo](https://agri-inc-bd279.web.app/) | [GitHub](https://github.com/mtuyar/agri-inc)
+**Links:** [Live Demo](https://agri-inc-bd279.web.app/) | [GitHub](https://github.com/mtuyar/agri-inc) | [Team Profile](https://www.spaceappschallenge.org/2025/find-a-team/hanzalabs/) | [LinkedIn Post](https://www.linkedin.com/posts/abdullahilgaz_space-apps-challenge-activity-7380300960167866368-k8lW)
 
 ---
 
@@ -33,6 +33,8 @@ The game simulates four seasons with a ₺300 budget, where players make irrigat
 They created an interactive animated website showcasing how Lake Tuz changes colors throughout the year. Using satellite imagery from NASA's Terra satellite, they processed six years of weekly images with Python scripts and built animations with GSAP framework.
 
 The project visualizes true color imagery from Terra's MODIS instrument, filtered by cloud cover, and includes land surface temperature measurements.
+
+**Links:** [Team Profile](https://www.spaceappschallenge.org/2025/find-a-team/hackers-from-the-space/)
 
 ---
 
