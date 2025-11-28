@@ -1,0 +1,17 @@
+{
+  "event": "Konya Hackerspace Kick-off",
+  "date": "29.11.2025",
+  "location": "Konya Teknokent",
+  "timeline": {
+    "12:00": {"title": "KTD Members Meeting","type": "required-for-members","notes": ["boring","paperwork","legal chores"]},
+    "12:01": {"title": "Pick-ups","pickup_point": "Fırat Cd. Tram Station"},
+    "12:45": {"title": "Dhuhr Prayer","location": "1st Floor Masjid","type": "congregational"},
+    "13:00": {"title": "Main Event Begins","content": ["Opening Talk","Presentations","Tea","Coffee"]},
+    "13:30": {"title": "Lunch","menu": ["pizza","good food","caffeine"],"notes": ["hungry_is_not_fun"]},
+    "14:00": {"title": "Fundraising","goal": "Initial rent + amenities","gifts": "symbolic gifts"},
+    "14:30": {"title": "Open Scene","guest_speakers": "5-10 minutes","instructions": ["ask in advance"]},
+    "15:20": {"title": "Asr Prayer","location": "1st Floor Masjid","type": "congregational"},
+    "15:30": {"title": "Networking","resources": ["tea","coffee","snacks","maybe_fizzy_drinks"],"mission": "meet_people"},
+    "16:00": {"title": "Event Ends","notes": ["sad_goodbyes","join_us_again"]}
+  }
+}

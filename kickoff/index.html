@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Konya Hackerspace Kickoff Event</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e6dfd7;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .paper {
+      background: white;
+      width: 680px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+      border-radius: 4px;
+      white-space: pre-wrap;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+    .logo img {
+      height: 32px;
+      margin-right: 10px;
+    }
+    .logo-text {
+      font-weight: bold;
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="paper">
+
+    <div class="logo">
+      <img src="https://konyahackerspace.org/logo-white.png" alt="Logo">
+      <div class="logo-text">Hackafe</div>
+    </div>
+    
+curl -X GET "https://konyahackerspace.org/kickoff-event"
+
+Server: Konya
+X-Powered-By: Konya Teknoloji Derneği
+Model: HackerCulture v1.0
+Status: "Bootstrapping..."
+
+{
+  "event": "Konya Hackerspace Kick-off",
+  "date": "29.11.2025",
+  "location": "Konya Teknokent",
+
+  "timeline": {
+    "12:00": {
+      "title": "KTD Members Meeting",
+      "type": "required-for-members",
+      "notes": ["boring", "paperwork", "legal chores"]
+    },
+
+    "12:01": {
+      "title": "Pick-ups",
+      "pickup_point": "Fırat Cd. Tram Station"
+    },
+
+    "12:45": {
+      "title": "Dhuhr Prayer",
+      "location": "1st Floor Masjid",
+      "type": "congregational"
+    },
+
+    "13:00": {
+      "title": "Main Event Begins",
+      "content": ["Opening Talk", "Presentations", "Tea", "Coffee"]
+    },
+
+    "13:30": {
+      "title": "Lunch",
+      "menu": ["pizza", "good food", "caffeine"],
+      "notes": ["hungry_is_not_fun"]
+    },
+
+    "14:00": {
+      "title": "Fundraising",
+      "goal": "Initial rent + amenities for hackerspace",
+      "gifts": "symbolic gifts for top supporters"
+    },
+
+    "14:30": {
+      "title": "Open Scene",
+      "guest_speakers": "5-10 minutes each",
+      "instructions": ["ask in advance to get the mic"]
+    },
+
+    "15:20": {
+      "title": "Asr Prayer",
+      "location": "1st Floor Masjid",
+      "type": "congregational"
+    },
+
+    "15:30": {
+      "title": "Networking",
+      "resources": ["tea", "coffee", "snacks", "maybe_fizzy_drinks"],
+      "mission": "meet_as_many_awesome_people_as_possible"
+    },
+
+    "16:00": {
+      "title": "Event Ends",
+      "notes": ["sad_goodbyes", "join_community_for_more"]
+    }
+  }
+}
+</div>
+</body>
+</html>
