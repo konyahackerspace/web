@@ -19,6 +19,10 @@ copyright = "Powered by Hugo"
     url = "/events/"
     weight = 10
 
+# Allow raw HTML in markdown (needed for iframes)
+[markup.goldmark.renderer]
+  unsafe = true
+
 # PaperMod basics
 [params]
   favicon = 'favicon.png'
