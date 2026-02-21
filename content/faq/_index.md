@@ -63,7 +63,7 @@ Got questions? Feel free to reach out!
 
 ### Do you have a physical space?
 
-Not yet but it's a near-term goal. Once there’s enough demand, we’ll begin building one, inshaallah.
+Yes! As of December 2025, our physical space is now open, alhamdulillah. You can find us at: [Beyhekim, Bestami Sk No: 14/B, 42060 Selçuklu/Konya](https://share.google/74VwYvMD1s4Fa8lvF).
 
 ---
 
@@ -75,7 +75,12 @@ Right now, joining is free but by referral only. Join the waitlist by filling ou
 
 Also, membership is open to men only to avoid gender mixing. If you're a woman interested in joining, you can join the waitlist by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSf_YVqVN-tjCoj7H-KDl9VMipHrvcPBLE6HiFnqmHOZrKD4Ng/viewform?usp=dialog). If there's enough interest, we may create an extension for women hackers.
 
-Once we have a physical space, we plan to introduce paid memberships.
+As of December 2025, we have a physical space and collect monthly dues:
+
+- **Standard membership:** 2000 TL/month
+- **Students & recent graduates:** 500 TL/month
+
+We also accept one-time or recurring donations. In our [HEPS repo](https://github.com/konyahackerspace/heps), suggestions that need funding are marked as "pledge." You can also donate electronics, hardware, or anything you think would fit a hackerspace-makerspace environment. We'll accept all physical donations until we run out of space!
 
 Members are free to leave at any time.
 
