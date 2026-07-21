@@ -27,3 +27,94 @@ header {
 .header__logo::after {
   display: none;
 }
+
+/* ── Live space status badge (PIR sensor -> Firebase) ────────────────────
+   Shows online/offline status in the top-right corner.
+   Markup: layouts/partials/header.html · Logic: layouts/partials/extended_head.html */
+.space-status {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--foreground);
+  background: rgba(255, 249, 224, 0.06);
+  border: 1px solid rgba(255, 249, 224, 0.14);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  user-select: none;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.space-status__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #6b6b6b;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ONLINE — motion detected (Firebase = true) */
+.space-status--online {
+  color: #7cffb2;
+  border-color: rgba(53, 224, 122, 0.45);
+  background: rgba(53, 224, 122, 0.12);
+}
+.space-status--online .space-status__dot {
+  background: #35e07a;
+  box-shadow: 0 0 8px 1px rgba(53, 224, 122, 0.85);
+  animation: space-status-pulse 2s ease-out infinite;
+}
+
+/* OFFLINE — no motion (Firebase = false) */
+.space-status--offline {
+  color: #ffb3a7;
+  border-color: rgba(255, 90, 70, 0.35);
+  background: rgba(255, 90, 70, 0.1);
+}
+.space-status--offline .space-status__dot {
+  background: #ff5a46;
+  box-shadow: 0 0 6px 0 rgba(255, 90, 70, 0.6);
+}
+
+/* Unknown / loading / connection error */
+.space-status--loading,
+.space-status--unknown {
+  color: rgba(255, 249, 224, 0.55);
+}
+
+@keyframes space-status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(53, 224, 122, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(53, 224, 122, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(53, 224, 122, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-status--online .space-status__dot {
+    animation: none;
+  }
+}
+
+/* Compact on mobile: dot only, to avoid clashing with the hamburger menu */
+@media (max-width: 684px) {
+  .space-status {
+    font-size: 0.72rem;
+    padding: 0.3rem;
+    margin-right: 0.6rem;
+  }
+  .space-status__label {
+    display: none;
+  }
+}

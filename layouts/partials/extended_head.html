@@ -1,0 +1,155 @@
+{{/* ───────────────────────────────────────────────────────────────────────
+     Konya Hackerspace — live space status indicator
+     PIR sensor (Home Assistant)  ->  Firebase Realtime Database  ->  this script
+     Updates the #space-status badge (online / offline) in the top bar.
+     No external SDK; plain JS + Realtime Database REST API.
+   ─────────────────────────────────────────────────────────────────────── */}}
+<script>
+(function () {
+  "use strict";
+
+  // ══════════════════════════════════════════════════════════════════════
+  //  CONFIG  —  Set your own Firebase details here  (TODO)
+  // ══════════════════════════════════════════════════════════════════════
+  var CONFIG = {
+    // 1) Realtime Database base URL (WITHOUT trailing "/").
+    //    Shown at the top of the Firebase Console > Realtime Database page.
+    //    E.g.: "https://konya-hs-default-rtdb.europe-west1.firebasedatabase.app"
+    databaseURL: "https://konyahackerspace-f75c4-default-rtdb.europe-west1.firebasedatabase.app",
+
+    // 2) Path where the PIR value (true/false) is written — no leading "/".
+    //    If Home Assistant writes to e.g. "pir/motion", use that instead.
+    path: "presence/state",
+
+    // 3) Poll interval in milliseconds (20000 = 20 s).
+    pollIntervalMs: 20000,
+
+    // 4) Abort a single request if it takes longer than this (ms).
+    fetchTimeoutMs: 8000,
+
+    // Badge labels
+    labels: { online: "SPACE IS OPEN", offline: "SPACE IS CLOSED", unknown: "—" }
+  };
+  // ══════════════════════════════════════════════════════════════════════
+
+  function isConfigured() {
+    return CONFIG.databaseURL.indexOf("YOUR_PROJECT_ID") === -1;
+  }
+
+  // Converts the value coming from Firebase into a "motion detected?" boolean.
+  // Accepts true / 1 / "true" / "on" or {state|motion|value|on|occupied: ...}.
+  function isMotion(v) {
+    if (v === true || v === 1) return true;
+    if (typeof v === "string") {
+      var s = v.toLowerCase();
+      return s === "true" || s === "1" || s === "on";
+    }
+    if (v && typeof v === "object") {
+      var keys = ["state", "motion", "value", "on", "occupied"];
+      for (var i = 0; i < keys.length; i++) {
+        if (Object.prototype.hasOwnProperty.call(v, keys[i])) return isMotion(v[keys[i]]);
+      }
+    }
+    return false;
+  }
+
+  // Last rendered state, so we skip redundant DOM writes and — importantly —
+  // avoid re-triggering the aria-live region on every poll when nothing changed.
+  var lastState = null;
+
+  function render(el, state, text) {
+    if (state === lastState) return;
+    lastState = state;
+
+    el.classList.remove(
+      "space-status--loading",
+      "space-status--online",
+      "space-status--offline",
+      "space-status--unknown"
+    );
+    el.classList.add("space-status--" + state);
+    var label = el.querySelector(".space-status__label");
+    if (label) label.textContent = text;
+    el.setAttribute("aria-label", "Space status: " + text);
+  }
+
+  function update(el) {
+    var url =
+      CONFIG.databaseURL.replace(/\/+$/, "") +
+      "/" +
+      CONFIG.path.replace(/^\/+/, "") +
+      ".json";
+
+    // Abort a stalled request so it can't hang forever or pile up behind polls.
+    var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+    var timeoutId = controller
+      ? setTimeout(function () { controller.abort(); }, CONFIG.fetchTimeoutMs)
+      : null;
+
+    fetch(url, { cache: "no-store", signal: controller ? controller.signal : undefined })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        // presence/state can be removed entirely on disconnect (onDisconnect),
+        // returning null; treat that as offline, not unknown.
+        var online = data !== null && isMotion(data);
+        render(
+          el,
+          online ? "online" : "offline",
+          online ? CONFIG.labels.online : CONFIG.labels.offline
+        );
+      })
+      .catch(function () {
+        render(el, "unknown", CONFIG.labels.unknown);
+      })
+      .then(function () {
+        if (timeoutId) clearTimeout(timeoutId);
+      });
+  }
+
+  function start() {
+    var el = document.getElementById("space-status");
+    if (!el) return;
+
+    if (!isConfigured()) {
+      render(el, "unknown", CONFIG.labels.unknown);
+      el.title = "Firebase not configured: set CONFIG.databaseURL in extended_head.html.";
+      return;
+    }
+
+    // Stop/resume polling based on tab visibility to avoid needless requests.
+    var timer = null;
+
+    function stopPolling() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function startPolling() {
+      if (timer) return;
+      update(el);
+      timer = setInterval(function () { update(el); }, CONFIG.pollIntervalMs);
+    }
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stopPolling();
+      } else {
+        startPolling();
+      }
+    });
+
+    startPolling();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
+</script>
