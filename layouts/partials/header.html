@@ -1,0 +1,31 @@
+<header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      {{ partial "logo.html" . }}
+    </div>
+
+    {{/* Konya Hackerspace — live space status badge (PIR sensor -> Firebase).
+         Populated by the script in extended_head.html. */}}
+    <div
+      class="space-status space-status--loading"
+      id="space-status"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading space status"
+      title="Konya Hackerspace live status"
+    >
+      <span class="space-status__dot" aria-hidden="true"></span>
+      <span class="space-status__label">···</span>
+    </div>
+
+    {{ if len $.Site.Menus }}
+      {{ partial "mobile-menu.html" . }}
+    {{ end }}
+    {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
+      {{ partial "language-menu.html" . }}
+    {{ end }}
+  </div>
+  {{ if len $.Site.Menus }}
+    {{ partial "menu.html" . }}
+  {{ end }}
+</header>
